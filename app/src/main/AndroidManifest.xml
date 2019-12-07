@@ -27,7 +27,7 @@
         </activity>
 
         <!--main act-->
-        <activity android:name=".main.MainActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".main.MainActivity" android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
 
 
     </application>

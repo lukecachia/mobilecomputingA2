@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    >
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <item
-        android:id="@+id/addSportAcitivity"
-        android:icon="@drawable/ic_action_add"
-        android:title="@string/addsportactivity"/>
+<!--    <item-->
+<!--        android:id="@+id/addSportAcitivity"-->
+<!--        android:icon="@drawable/ic_action_add"-->
+<!--        android:title="@string/addsportactivity"/>-->
 
 </menu>

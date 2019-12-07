@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom|end">
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/mainAddActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="9dp"
+        android:visibility="invisible"
+        android:clickable="true"
+        android:focusable="true"
+        app:iconTint="@android:color/white"
+        app:backgroundTint="@android:color/holo_blue_light"
+        app:icon="@drawable/ic_bike_add" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/mainAddBike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="9dp"
+        android:visibility="invisible"
+        android:clickable="true"
+        android:focusable="true"
+        app:iconTint="@android:color/white"
+        app:backgroundTint="@android:color/holo_blue_dark"
+        app:icon="@drawable/ic_bike_add" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/mainFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="9dp"
+        android:visibility="visible"
+        android:clickable="true"
+        android:focusable="true"
+        app:iconTint="@android:color/white"
+        app:backgroundTint="@color/colorPrimaryDark"
+        app:icon="@drawable/ic_action_add" />
+
+
+
+</LinearLayout>
