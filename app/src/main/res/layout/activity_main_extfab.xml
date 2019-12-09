@@ -17,7 +17,7 @@
         android:focusable="true"
         app:iconTint="@android:color/white"
         app:backgroundTint="@android:color/holo_blue_light"
-        app:icon="@drawable/ic_bike_add" />
+        app:icon="@drawable/ic_activity_add" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/mainAddBike"

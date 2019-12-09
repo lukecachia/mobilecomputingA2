@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -16,6 +17,10 @@ public class MainActivity extends AppCompatActivity {
 
     Boolean isOpen = false;
 
+    private ExtendedFloatingActionButton fabMain;
+    private ExtendedFloatingActionButton fabAddBike;
+    private ExtendedFloatingActionButton fabAddActivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        final ExtendedFloatingActionButton fabMain        = findViewById(R.id.mainFab);
-        final ExtendedFloatingActionButton fabAddBike     = findViewById(R.id.mainAddBike);
-        final ExtendedFloatingActionButton fabAddActivity = findViewById(R.id.mainAddActivity);
+        fabMain        = findViewById(R.id.mainFab);
+        fabAddBike     = findViewById(R.id.mainAddBike);
+        fabAddActivity = findViewById(R.id.mainAddActivity);
 
         fabMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +48,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        fabAddBike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAddBikeActivity();
+            }
+        });
 
+
+    }
+
+    public void openAddBikeActivity(){
+        Intent intent =  new Intent(this, AddBikeActivity.class);
+        startActivity(intent);
     }
 }
