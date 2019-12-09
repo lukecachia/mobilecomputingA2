@@ -48,10 +48,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Method to enable the action btn to open the add bike screen
         fabAddBike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openAddBikeActivity();
+            }
+        });
+
+        //Method to enable the action btn to open the add activity screen
+        fabAddActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAddActivityActivity();
             }
         });
 
@@ -60,6 +69,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void openAddBikeActivity(){
         Intent intent =  new Intent(this, AddBikeActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void openAddActivityActivity(){
+        Intent intent = new Intent(this, AddActivityActivity.class);
         startActivity(intent);
     }
 }

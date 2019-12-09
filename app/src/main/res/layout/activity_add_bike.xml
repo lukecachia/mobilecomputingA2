@@ -6,11 +6,62 @@
     android:layout_height="match_parent"
     tools:context=".main.AddBikeActivity">
 
-    <TextView
+<!--    <include-->
+<!--        android:id="@+id/toolbar"-->
+<!--        android:text="@string/addBike_name"-->
+<!--        layout="@layout/toolbar" />-->
+
+    <EditText
+        android:id="@+id/bikeBrand"
+        android:layout_width="246dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="231dp"
+        android:layout_marginEnd="86dp"
+        android:cursorVisible="true"
+        android:ems="10"
+        android:inputType="textCapWords"
+        android:text="@string/addBike_brand" />
+
+    <EditText
+        android:id="@+id/bikeDOP"
+        android:layout_width="245dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="79dp"
+        android:layout_marginEnd="87dp"
+        android:layout_marginBottom="207dp"
+        android:ems="10"
+        android:inputType="date"
+        android:text="@string/addBike_dop" />
+
+    <EditText
+        android:id="@+id/bikeModel"
+        android:layout_width="246dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="320dp"
+        android:layout_marginEnd="86dp"
+        android:ems="10"
+        android:inputType="textCapWords"
+        android:text="@string/addBike_Model" />
+
+    <Button
+        android:id="@+id/bikeAddSubmitBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Activity 2"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="104dp"
+        android:text="@string/addBike_submit" />
 
 </RelativeLayout>

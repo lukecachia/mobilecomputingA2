@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ProBikeTech</string>
+    <string name="addBike_name">Add a new Bike</string>
+    <string name="addActivity_name">Add a new Activity</string>
+
+    <string name="addBike_brand">Enter the Make</string>
+    <string name="addBike_Model">Enter the Model</string>
+    <string name="addBike_submit">Submit</string>
+    <string name="addBike_dop">Enter the Date of Purchase</string>
 </resources>
