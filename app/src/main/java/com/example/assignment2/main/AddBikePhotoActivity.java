@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
@@ -89,7 +90,7 @@ public class AddBikePhotoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     takePhoto();
-                } catch (CameraAccessException e) {
+                } catch (CameraAccessException | InterruptedException e) {
                     e.printStackTrace();
                 }
             }
@@ -220,7 +221,7 @@ public class AddBikePhotoActivity extends AppCompatActivity {
 
     }
 
-    private void takePhoto() throws CameraAccessException {
+    private void takePhoto() throws CameraAccessException, InterruptedException {
         if(cameraDevice == null){
             return;
         }
@@ -291,11 +292,15 @@ public class AddBikePhotoActivity extends AppCompatActivity {
                super.onCaptureCompleted(session, request, result);
                Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_LONG).show();
 
+
+
                try {
                    createCameraPreview();
                } catch (CameraAccessException e) {
                    e.printStackTrace();
                }
+
+
            }
        };
 
@@ -314,6 +319,9 @@ public class AddBikePhotoActivity extends AppCompatActivity {
 
            }
        }, mBackgroundHandler);
+
+        //Going back to previous page
+        goBackToBikeActivity();
 
     }
 
@@ -371,6 +379,14 @@ public class AddBikePhotoActivity extends AppCompatActivity {
         mBackgroundThread = null;
 
         mBackgroundHandler = null;
+    }
+
+
+    private void goBackToBikeActivity() throws InterruptedException {
+        Thread.sleep(1000);
+
+        Intent intent = new Intent(this, AddBikeActivity.class);
+        startActivity(intent);
     }
 
 
