@@ -100,7 +100,7 @@ public class AddBikePhotoActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if(requestCode == 101){
             if(grantResults[0] == PackageManager.PERMISSION_DENIED){
-                Toast.makeText(getApplicationContext(), "Sorry, camera permission is necassary", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Sorry, camera permission is necessary", Toast.LENGTH_LONG).show();
                 //finish();
             }
         }
@@ -257,8 +257,8 @@ public class AddBikePhotoActivity extends AppCompatActivity {
         String ts = tsLong.toString();
 
         //file = new File(Environment.getExternalStorageDirectory() + "/" + ts + ".jpg");
-        file = new File(System.getenv("APPDATA") + "/IM_" + ts + ".jpg");
-        file = new File(Environment.getExternalStorageDirectory() + "/Pictures/" + "IM_" + ts + ".jpg");
+        //file = new File(System.getenv("APPDATA") + "/IM_" + ts + ".jpg");
+        file = new File(Environment.getExternalStorageDirectory() + "/Pictures/" + "IMG_" + ts + ".jpg");
 
         ImageReader.OnImageAvailableListener readerListener = new ImageReader.OnImageAvailableListener() {
             @Override

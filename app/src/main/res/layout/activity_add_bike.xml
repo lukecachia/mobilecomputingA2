@@ -6,11 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".main.AddBikeActivity">
 
-<!--    <include-->
-<!--        android:id="@+id/toolbar"-->
-<!--        android:text="@string/addBike_name"-->
-<!--        layout="@layout/toolbar" />-->
-
 
     <Button
         android:id="@+id/addBikePhoto"
@@ -18,10 +13,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="86dp"
-        android:text="Photo" />
-
-
+        android:layout_marginTop="83dp"
+        android:backgroundTint="@color/colorAccent"
+        android:background="@drawable/roundedbutton"
+        android:icon="@drawable/ic_action_add"
+        android:text="@string/add_a_photo"
+        android:textSize="16dp" />
 
     <EditText
         android:id="@+id/bikeBrand"
@@ -37,7 +34,7 @@
         android:cursorVisible="true"
         android:ems="10"
         android:inputType="textCapWords"
-        android:text="@string/addBike_brand" />
+        android:hint="@string/addBike_brand" />
 
     <EditText
         android:id="@+id/bikeDOP"
@@ -65,7 +62,7 @@
         android:layout_marginEnd="86dp"
         android:ems="10"
         android:inputType="textCapWords"
-        android:text="@string/addBike_Model" />
+        android:hint="@string/addBike_Model" />
 
     <Button
         android:id="@+id/bikeAddSubmitBtn"
@@ -74,6 +71,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="104dp"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:text="@string/addBike_submit" />
 
 
