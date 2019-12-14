@@ -9,21 +9,22 @@
 
     <EditText
         android:id="@+id/activityDistance"
-        android:layout_width="246dp"
+        android:layout_width="286dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_gravity="center"
-        android:layout_marginStart="79dp"
-        android:layout_marginTop="231dp"
-        android:layout_marginEnd="86dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="239dp"
+        android:layout_marginEnd="78dp"
         android:cursorVisible="true"
+        android:layout_centerHorizontal="true"
         android:ems="10"
-        android:inputType="textCapWords"
-        android:hint="@string/activityDistance" />
+        android:hint="@string/activityDistance"
+        android:inputType="textCapWords" />
 
-    <TextView
+    <Spinner
         android:id="@+id/selectBikeSpn"
         android:layout_width="246dp"
         android:layout_height="25dp"
