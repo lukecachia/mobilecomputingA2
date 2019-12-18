@@ -2,15 +2,24 @@ package com.example.assignment2.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 
 import com.example.assignment2.R;
+import com.example.assignment2.object.Bike;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private ExtendedFloatingActionButton fabMain;
     private ExtendedFloatingActionButton fabAddBike;
     private ExtendedFloatingActionButton fabAddActivity;
+
+    private AppViewModel appViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +75,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
 
+        final BikeAdapter bikeAdapter = new BikeAdapter();
+        recyclerView.setAdapter(bikeAdapter);
+
+        appViewModel = ViewModelProviders.of(this).get(AppViewModel.class);
+        appViewModel.getAllBikes().observe(this, new Observer<List<Bike>>() {
+            @Override
+            public void onChanged(List<Bike> bikes) {
+                //Update Recycleview
+                //Toast.makeText(MainActivity.this,  "onChange", Toast.LENGTH_LONG).show();
+
+                bikeAdapter.setBikes(bikes);
+            }
+        });
     }
 
     public void openAddBikeActivity(){

@@ -9,21 +9,39 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+        layout="@layout/toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
 
-    <include
-        layout="@layout/activity_main_extfab" />
+    <!--    <FrameLayout-->
+<!--        android:id="@+id/container"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        tools:context=".main.ui.bikelist.BikeListActivity" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="65dp"
+        android:background="@android:color/darker_gray"
         android:padding="4dp"
         android:scrollbars="vertical"
-        android:background="@android:color/darker_gray" />
+        tools:listitem="@layout/bike_item" />
 
-
-
+    <include
+        layout="@layout/activity_main_extfab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginBottom="-41dp" />
 
 
 </RelativeLayout>

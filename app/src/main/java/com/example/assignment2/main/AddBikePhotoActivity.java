@@ -36,7 +36,6 @@ import android.widget.Toast;
 import com.example.assignment2.R;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -44,8 +43,6 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import static android.os.Environment.getExternalStorageDirectory;
 
 public class AddBikePhotoActivity extends AppCompatActivity {
 
