@@ -53,7 +53,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            bikeDAO.insertBike(new Bike("SampleBrand", "SampleModel", "18/12/2019"));
+            //bikeDAO.insertBike(new Bike("SampleBrand", "SampleModel", "18/12/2019"));
 
             return null;
         }

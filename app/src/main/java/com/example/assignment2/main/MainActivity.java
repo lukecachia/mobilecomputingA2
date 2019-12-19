@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 
 import com.example.assignment2.R;
+import com.example.assignment2.adapter.BikeAdapter;
 import com.example.assignment2.object.Bike;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
@@ -23,6 +23,7 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
+    public static final int ADD_BIKE_REQUEST = 1;
 
     Boolean isOpen = false;
 
@@ -86,9 +87,6 @@ public class MainActivity extends AppCompatActivity {
         appViewModel.getAllBikes().observe(this, new Observer<List<Bike>>() {
             @Override
             public void onChanged(List<Bike> bikes) {
-                //Update Recycleview
-                //Toast.makeText(MainActivity.this,  "onChange", Toast.LENGTH_LONG).show();
-
                 bikeAdapter.setBikes(bikes);
             }
         });
@@ -96,12 +94,34 @@ public class MainActivity extends AppCompatActivity {
 
     public void openAddBikeActivity(){
         Intent intent =  new Intent(this, AddBikeActivity.class);
-        startActivity(intent);
+        //startActivity(intent);
+        startActivityForResult(intent, ADD_BIKE_REQUEST);
 
     }
 
     public void openAddActivityActivity(){
         Intent intent = new Intent(this, AddActivityActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == ADD_BIKE_REQUEST && resultCode == RESULT_OK){
+            String bikeBrand = data.getStringExtra(AddBikeActivity.EXTRA_BIKEBRAND);
+            String bikeModel = data.getStringExtra(AddBikeActivity.EXTRA_BIKEMODEL);
+            String bikeDOP   = data.getStringExtra(AddBikeActivity.EXTRA_BIKEDOP);
+
+            Bike newBike = new Bike(bikeBrand, bikeModel, bikeDOP);
+            appViewModel.insertBike(newBike);
+
+            Toast.makeText(this, "New Bike Saved", Toast.LENGTH_LONG).show();
+
+        } else {
+            Toast.makeText(this, "Bike not saved", Toast.LENGTH_SHORT).show();
+
+        }
+
     }
 }

@@ -3,41 +3,46 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="4dp" >
+    app:cardCornerRadius="4dp"
+    android:padding="40dp"
+    android:layout_marginBottom="6dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="4dp">
+        android:layout_height="107dp"
+        android:layout_margin="4dp"
+        android:padding="4dp">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:padding="2dp" />
+            android:layout_width="62dp"
+            android:layout_height="57dp"
+            android:padding="2dp"
+            app:icon="@drawable/ic_bike_add" />
 
         <TextView
             android:id="@+id/itemTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Line1"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"
             android:layout_alignParentTop="true"
-            android:layout_toEndOf="@id/imageView" />
+            android:layout_toEndOf="@id/imageView"
+            android:padding="2dp"
+            android:text="Line1"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/itemSubtitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Line2"
-            android:textSize="15sp"
-            android:textColor="@android:color/black"
             android:layout_below="@+id/itemTitle"
+            android:layout_marginTop="2dp"
             android:layout_toEndOf="@+id/imageView"
-            android:layout_marginStart="8dp" />
-
+            android:padding="2dp"
+            android:text="Line2"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
 
 
     </RelativeLayout>

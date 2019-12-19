@@ -7,13 +7,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.assignment2.R;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class AddBikeActivity extends AppCompatActivity {
+    public static final String EXTRA_BIKEBRAND  =
+            "com.package com.example.assignment2.main.EXTRA_BIKEBRAND";
+    public static final String EXTRA_BIKEMODEL =
+            "package com.example.assignment2.main.EXTRA_BIKEMODEL";
+    public static final String EXTRA_BIKEDOP =
+            "package com.example.assignment2.main.EXTRA_BIKEDOP";
+
 
     Button photoBtn;
     Button submitBtn;
@@ -64,7 +73,22 @@ public class AddBikeActivity extends AppCompatActivity {
     }
 
     private void addNewBike() {
+        String bikeBrand = makeTxtView.getText().toString();
+        String bikeModel = modelTxtView.getText().toString();
+        String bikeDOP   = dopTxtView.getText().toString();
 
+        if(bikeBrand.trim().isEmpty() || bikeModel.trim().isEmpty() || bikeDOP.trim().isEmpty()){
+            Toast.makeText(this, "Please insert data", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        Intent newData = new Intent();
+        newData.putExtra(EXTRA_BIKEBRAND, bikeBrand);
+        newData.putExtra(EXTRA_BIKEMODEL, bikeModel);
+        newData.putExtra(EXTRA_BIKEDOP, bikeDOP);
+
+        setResult(RESULT_OK, newData);
+        finish();
     }
 
 
