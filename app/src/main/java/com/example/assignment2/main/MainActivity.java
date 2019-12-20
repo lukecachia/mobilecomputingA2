@@ -1,9 +1,11 @@
 package com.example.assignment2.main;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -90,6 +92,26 @@ public class MainActivity extends AppCompatActivity {
                 bikeAdapter.setBikes(bikes);
             }
         });
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                appViewModel.deleteBike(bikeAdapter.getBikeAt(viewHolder.getAdapterPosition()));
+                Toast.makeText(MainActivity.this, "Bike deleted", Toast.LENGTH_LONG).show();
+            }
+        }).attachToRecyclerView(recyclerView);
+
+        //Shows toast when there are no bikes
+        if(bikeAdapter.getItemCount() == 0){
+            Toast.makeText(MainActivity.this, "Add a new Bike!", Toast.LENGTH_LONG).show();
+        }
+
+
     }
 
     public void openAddBikeActivity(){

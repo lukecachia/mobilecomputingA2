@@ -4,11 +4,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.assignment2.R;
+import com.example.assignment2.main.MainActivity;
 import com.example.assignment2.object.Bike;
 
 import java.util.ArrayList;
@@ -42,6 +44,12 @@ public class BikeAdapter extends RecyclerView.Adapter<BikeAdapter.BikeHolder> {
     public void setBikes(List<Bike> bikes){
         this.bikes = bikes;
         notifyDataSetChanged();
+    }
+
+    //method which returns an item from the list of bikes
+    //at that particular index (position)
+    public Bike getBikeAt(int position){
+        return bikes.get(position);
     }
 
     class BikeHolder extends RecyclerView.ViewHolder {
