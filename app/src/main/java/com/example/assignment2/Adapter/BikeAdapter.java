@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BikeAdapter extends RecyclerView.Adapter<BikeAdapter.BikeHolder> {
+    private OnItemClickListener listener;
 
     private List<Bike> bikes = new ArrayList<>();
 
@@ -61,7 +62,27 @@ public class BikeAdapter extends RecyclerView.Adapter<BikeAdapter.BikeHolder> {
             title    = itemView.findViewById(R.id.itemTitle);
             subtitle = itemView.findViewById(R.id.itemSubtitle);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if(listener != null && position != RecyclerView.NO_POSITION){
+                        listener.onItemClick(bikes.get(position));
+                    }
+
+                }
+            });
+
 
         }
+    }
+
+    //On ItemClick fun
+    public interface OnItemClickListener{
+        void onItemClick(Bike bike);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        this.listener = listener;
     }
 }

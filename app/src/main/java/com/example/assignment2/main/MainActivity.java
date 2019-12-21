@@ -27,6 +27,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     public static final int ADD_BIKE_REQUEST = 1;
+    public static final int EDIT_BIKE_REQUEST = 2;
+
 
     Boolean isOpen = false;
 
@@ -106,6 +108,19 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Bike deleted", Toast.LENGTH_LONG).show();
             }
         }).attachToRecyclerView(recyclerView);
+
+        //
+        bikeAdapter.setOnItemClickListener(new BikeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Bike bike) {
+                Intent intent = new Intent(MainActivity.this, BikeProfileActivity.class);
+                intent.putExtra(BikeProfileActivity.EXTRA_ID, bike.getBikeId());
+                intent.putExtra(BikeProfileActivity.EXTRA_BBRAND, bike.getBikeBrand());
+                intent.putExtra(BikeProfileActivity.EXTRA_BMODEL, bike.getBikeModel());
+
+                startActivityForResult(intent, EDIT_BIKE_REQUEST);
+            }
+        });
 
         //Shows toast when there are no bikes
         if(bikeAdapter.getItemCount() == 0){
