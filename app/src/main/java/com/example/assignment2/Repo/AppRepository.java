@@ -1,27 +1,55 @@
-package com.example.assignment2.main;
+package com.example.assignment2.Repo;
 
 import android.app.Application;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
+import com.example.assignment2.DAO.ActivityDAO;
 import com.example.assignment2.DAO.BikeDAO;
-import com.example.assignment2.object.Bike;
+import com.example.assignment2.Object.Activity;
+import com.example.assignment2.Object.Component;
+import com.example.assignment2.db.AppDatabase;
+import com.example.assignment2.Object.Bike;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AppRepository {
+
+    //BikeRepo
     private BikeDAO bikeDAO;
     private LiveData<List<Bike>> allBikes;
+    private List<String> bikeModel;
+
+    //ActivityRepo
+    private ActivityDAO activityDAO;
+    private LiveData<List<Activity>> allActivities;
+    private LiveData<Integer> allActivitiesByBike;
+    private int allActivitiesByBikePerComponent;
+
 
     public AppRepository(Application application){
         AppDatabase database = AppDatabase.getInstance(application);
 
+        //BikeDAO
         bikeDAO = database.bikeDAO();
+
         allBikes = bikeDAO.selectAllBikes();
+
+        //ActivityDAO
+        activityDAO = database.activityDAO();
+
+        allActivities = activityDAO.selectAllActivities();
+        allActivitiesByBike = activityDAO.totalDistancePerBike();
+        //allActivitiesByBikePerComponent = activityDAO.getTotalDistanceOfComponent();
+
 
     }
 
+
+    //Bike
     public void insertBike(Bike bike){
         new InsertBikeAsyncTask(bikeDAO).execute(bike);
     }
@@ -30,13 +58,16 @@ public class AppRepository {
         new UpdateBikeAsyncTask(bikeDAO).execute(bike);
     }
 
-
     public void deleteBike(Bike bike){
         new DeleteBikeAsyncTask(bikeDAO).execute(bike);
     }
 
     public LiveData<List<Bike>> getAllBikes() {
         return allBikes;
+    }
+
+    public List<String> getBikeModel(){
+        return bikeModel;
     }
 
     private static class InsertBikeAsyncTask extends AsyncTask<Bike, Void, Void> {
@@ -86,6 +117,11 @@ public class AppRepository {
             return null;
         }
     }
+
+
+    //Activity
+
+
 
 
 

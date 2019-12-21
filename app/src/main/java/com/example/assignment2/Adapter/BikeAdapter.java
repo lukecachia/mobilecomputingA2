@@ -1,17 +1,15 @@
-package com.example.assignment2.adapter;
+package com.example.assignment2.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.assignment2.R;
-import com.example.assignment2.main.MainActivity;
-import com.example.assignment2.object.Bike;
+import com.example.assignment2.Object.Bike;
 
 import java.util.ArrayList;
 import java.util.List;

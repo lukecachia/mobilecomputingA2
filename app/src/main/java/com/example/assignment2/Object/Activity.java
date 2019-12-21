@@ -1,14 +1,19 @@
-package com.example.assignment2.object;
+package com.example.assignment2.Object;
 
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverter;
+import androidx.room.TypeConverters;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(tableName = "ActivityList")
 public class Activity {
-
     @PrimaryKey(autoGenerate = true)
     private int id;
 
@@ -16,6 +21,8 @@ public class Activity {
     private int bikeId;
 
     private int distance;
+
+    private String dateActivity;
 
 
     public int getId() {
@@ -30,13 +37,19 @@ public class Activity {
         return distance;
     }
 
+    public String getDateActivity() {
+        return dateActivity;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
 
-    public Activity(int bikeId, int distance) {
+
+    public Activity(int bikeId, int distance, String dateActivity) {
         this.bikeId = bikeId;
         this.distance = distance;
+        this.dateActivity = dateActivity;
     }
 
 

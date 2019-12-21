@@ -1,4 +1,4 @@
-package com.example.assignment2.object;
+package com.example.assignment2.Object;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

@@ -17,8 +17,9 @@ import android.widget.Toast;
 
 
 import com.example.assignment2.R;
-import com.example.assignment2.adapter.BikeAdapter;
-import com.example.assignment2.object.Bike;
+import com.example.assignment2.ViewModel.AppViewModel;
+import com.example.assignment2.Adapter.BikeAdapter;
+import com.example.assignment2.Object.Bike;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.util.List;

@@ -16,40 +16,32 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".main.BikeProfileActivity"></activity>
         <activity
             android:name=".main.AddBikePhotoActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".main.AddActivityActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".main.AddBikeActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".main.MainActivity">
-        </activity>
-
+            android:parentActivityName=".main.MainActivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".main.SplashActivity"
-            android:theme="@style/SplashTheme"
-            android:screenOrientation="portrait">
-
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".main.MainActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:launchMode="singleTop" >
-        </activity>
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"></activity>
     </application>
 
 </manifest>
