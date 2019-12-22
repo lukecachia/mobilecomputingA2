@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.assignment2.R;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 public class BikeProfileActivity extends AppCompatActivity {
     public static final String EXTRA_ID =
@@ -18,6 +19,7 @@ public class BikeProfileActivity extends AppCompatActivity {
 
 
     TextView bikeTitle;
+    ExtendedFloatingActionButton mainFab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class BikeProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bike_profile);
 
         bikeTitle = findViewById(R.id.bikeTitle);
+        mainFab   = findViewById(R.id.addComponentFab);
 
         Intent intent = getIntent();
 

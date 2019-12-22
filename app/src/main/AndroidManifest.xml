@@ -16,19 +16,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".main.BikeProfileActivity"
-            android:screenOrientation="portrait"/>
-
+        <activity android:name=".main.AddComponentActivity"></activity>
+        <activity
+            android:name=".main.BikeProfileActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".main.AddBikePhotoActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".main.AddActivityActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".main.AddBikeActivity"
             android:parentActivityName=".main.MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".main.SplashActivity"
             android:screenOrientation="portrait"
@@ -43,7 +44,7 @@
             android:name=".main.MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
     </application>
 
 </manifest>
