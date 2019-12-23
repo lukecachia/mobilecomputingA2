@@ -9,12 +9,12 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="138dp"
+        android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:padding="4dp">
 
         <TextView
-            android:id="@+id/itemTitle"
+            android:id="@+id/componentTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -24,66 +24,68 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/itemSubtitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/itemTitle"
-            android:layout_marginTop="2dp"
-            android:padding="2dp"
-            android:text="Line2"
-            android:textColor="@android:color/black"
-            android:textSize="15sp" />
+        <!--        <TextView-->
+        <!--            android:id="@+id/componentSubtitle"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_below="@+id/itemTitle"-->
+        <!--            android:layout_marginTop="2dp"-->
+        <!--            android:padding="2dp"-->
+        <!--            android:text="Line2"-->
+        <!--            android:textColor="@android:color/black"-->
+        <!--            android:textSize="15sp" />-->
 
         <TextView
-            android:id="@+id/itemSubtitle2"
+            android:id="@+id/purchaseTitle"
             android:layout_width="191dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/itemTitle"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="33dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="209dp"
             android:padding="2dp"
-            android:text="Line2"
+            android:text="DOP"
             android:textColor="@android:color/black"
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/itemSubtitle3"
+            android:id="@+id/compPurchase"
             android:layout_width="191dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/itemTitle"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="9dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="12dp"
             android:padding="2dp"
-            android:text="Line2"
+            android:text="DOP"
             android:textColor="@android:color/black"
             android:textSize="15sp" />
 
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="150dp"
+        <TextView
+            android:id="@+id/lifetimeTitle"
+            android:layout_width="191dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/itemSubtitle"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:inputType="textPersonName"
+            android:layout_below="@+id/itemTitle"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="65dp"
+            android:layout_marginEnd="209dp"
             android:padding="2dp"
-            android:text="Name" />
+            android:text="Component Lifetime"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
 
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="150dp"
+        <TextView
+            android:id="@+id/compLifetime"
+            android:layout_width="191dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/itemSubtitle"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="40dp"
-            android:ems="10"
-            android:inputType="textPersonName"
+            android:layout_below="@+id/itemTitle"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="66dp"
+            android:layout_marginEnd="12dp"
             android:padding="2dp"
-            android:text="Name" />
+            android:text="Component Lifetime"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
 
 
     </RelativeLayout>

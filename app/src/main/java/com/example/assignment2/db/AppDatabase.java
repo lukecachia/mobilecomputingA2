@@ -11,12 +11,13 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.assignment2.DAO.ActivityDAO;
 import com.example.assignment2.DAO.BikeDAO;
+import com.example.assignment2.DAO.ComponentDAO;
 import com.example.assignment2.Object.Activity;
 import com.example.assignment2.Object.Bike;
 import com.example.assignment2.Object.Component;
 
 
-@Database(entities = {Bike.class, Activity.class}, version = 1, exportSchema = false)
+@Database(entities = {Bike.class, Activity.class, Component.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
 
@@ -26,10 +27,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract ActivityDAO activityDAO();
 
-
-    //public abstract ComponentDAO componentDAO();
-
-
+    public abstract ComponentDAO componentDAO();
 
     //singleton method
     public static synchronized AppDatabase getInstance(Context context){
@@ -57,10 +55,12 @@ public abstract class AppDatabase extends RoomDatabase {
 
         private BikeDAO bikeDAO;
         private ActivityDAO activityDAO;
+        private ComponentDAO componentDAO;
 
         private PopulateDbAsyncTask(AppDatabase db){
             bikeDAO = db.bikeDAO();
             activityDAO = db.activityDAO();
+            componentDAO = db.componentDAO();
         }
 
         @Override

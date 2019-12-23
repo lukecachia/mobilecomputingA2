@@ -9,6 +9,9 @@
     <string name="addBike_dop">Enter the Date of Purchase</string>
     <string name="add_a_photo">Add a Photo</string>
     <string name="activityDistance">Distance for this Activity</string>
+    <string name="addComponent_submit">Submit</string>
+    <string name="add_component">Add a component</string>
+    <string name="add_lifetime">Add component Lifetime</string>
 
 
     <string-array name="listOfBikes">

@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData;
 
 import com.example.assignment2.DAO.ActivityDAO;
 import com.example.assignment2.DAO.BikeDAO;
+import com.example.assignment2.DAO.ComponentDAO;
 import com.example.assignment2.Object.Activity;
 import com.example.assignment2.Object.Component;
 import com.example.assignment2.db.AppDatabase;
@@ -29,13 +30,16 @@ public class AppRepository {
     private LiveData<Integer> allActivitiesByBike;
     private int allActivitiesByBikePerComponent;
 
+    //ComponentRepo
+    private ComponentDAO componentDAO;
+    private LiveData<List<Component>> allComponents;
+
 
     public AppRepository(Application application){
         AppDatabase database = AppDatabase.getInstance(application);
 
         //BikeDAO
         bikeDAO = database.bikeDAO();
-
         allBikes = bikeDAO.selectAllBikes();
 
         //ActivityDAO
@@ -44,6 +48,10 @@ public class AppRepository {
         allActivities = activityDAO.selectAllActivities();
         allActivitiesByBike = activityDAO.totalDistancePerBike();
         //allActivitiesByBikePerComponent = activityDAO.getTotalDistanceOfComponent();
+
+        //ComponentDAO
+        componentDAO = database.componentDAO();
+        allComponents = componentDAO.getAllComponents();
 
 
     }
@@ -120,6 +128,69 @@ public class AppRepository {
 
 
     //Activity
+
+
+    //Component
+    public void insertComponent(Component component){
+        new InsertComponentAsyncTask(componentDAO).execute(component);
+    }
+
+    public void updateComponent(Component component){
+        new UpdateComponentAsyncTask(componentDAO).execute(component);
+    }
+
+
+    public void deleteComponent(Component component){
+        new DeleteComponentAsyncTask(componentDAO).execute(component);
+    }
+
+    public LiveData<List<Component>> getAllComponents() {
+        return allComponents;
+    }
+
+    private static class InsertComponentAsyncTask  extends AsyncTask<Component, Void, Void> {
+        private ComponentDAO componentDAO;
+
+        private InsertComponentAsyncTask(ComponentDAO componentDAO){
+            this.componentDAO = componentDAO;
+        }
+
+        @Override
+        protected Void doInBackground(Component... components) {
+            componentDAO.insert(components[0]);
+            return null;
+        }
+
+    }
+
+    private static class UpdateComponentAsyncTask extends AsyncTask<Component, Void, Void> {
+        private ComponentDAO componentDAO;
+
+        private UpdateComponentAsyncTask(ComponentDAO componentDAO){
+            this.componentDAO = componentDAO;
+        }
+
+        @Override
+        protected Void doInBackground(Component... components) {
+            componentDAO.update(components[0]);
+            return null;
+        }
+    }
+
+    private static class DeleteComponentAsyncTask extends AsyncTask<Component, Void, Void> {
+        private ComponentDAO componentDAO;
+
+        private DeleteComponentAsyncTask(ComponentDAO componentDAO){
+            this.componentDAO = componentDAO;
+
+        }
+
+        @Override
+        protected Void doInBackground(Component... components) {
+            componentDAO.delete(components[0]);
+            return null;
+        }
+    }
 
 
 

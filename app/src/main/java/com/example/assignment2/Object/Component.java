@@ -15,14 +15,21 @@ public class Component {
     @ForeignKey(entity = Bike.class, parentColumns = "id", childColumns = "bikeId")
     private int bikeId;
 
-    private int componentLifetime;
+
+
+    private String componentName;
+    private String componentLifetime;
     private String dateComponent;
 
     public int getBikeId() {
         return bikeId;
     }
 
-    public int getComponentLifetime() {
+    public String getComponentName() {
+        return componentName;
+    }
+
+    public String getComponentLifetime() {
         return componentLifetime;
     }
 
@@ -34,14 +41,17 @@ public class Component {
         return id;
     }
 
-    public Component(int id, int bikeId, int componentLifetime, String dateComponent) {
-        this.id = id;
-        this.bikeId = bikeId;
+    public Component(String componentName, String componentLifetime, String dateComponent) {
+        this.componentName = componentName;
         this.componentLifetime = componentLifetime;
         this.dateComponent = dateComponent;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setBikeId(int bikeId) {
+        this.bikeId = bikeId;
     }
 }
