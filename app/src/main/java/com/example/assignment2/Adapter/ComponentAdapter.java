@@ -16,7 +16,7 @@ import java.util.List;
 
 public class ComponentAdapter extends RecyclerView.Adapter<ComponentAdapter.ComponentHolder> {
     private List<Component> components = new ArrayList<>();
-
+    private OnComponentClickListener listener;
     @NonNull
     @Override
     public ComponentHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -49,7 +49,6 @@ public class ComponentAdapter extends RecyclerView.Adapter<ComponentAdapter.Comp
         return components.get(position);
     }
 
-
     //
     class ComponentHolder extends RecyclerView.ViewHolder{
         private TextView componentTitle;
@@ -64,7 +63,26 @@ public class ComponentAdapter extends RecyclerView.Adapter<ComponentAdapter.Comp
             componentPurchase = itemView.findViewById(R.id.componentPDate);
             componentLifetime = itemView.findViewById(R.id.componentLifetime);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if(listener != null && position != RecyclerView.NO_POSITION){
+                        listener.onComponentClick(components.get(position));
+                    }
+
+                }
+            });
 
         }
+    }
+
+    public interface OnComponentClickListener {
+        void onComponentClick(Component component);
+    }
+
+    public void setOnComponentClickListener(OnComponentClickListener listener){
+        this.listener = listener;
+
     }
 }

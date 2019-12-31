@@ -15,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.assignment2.Adapter.ComponentAdapter;
-import com.example.assignment2.Object.Bike;
 import com.example.assignment2.Object.Component;
 import com.example.assignment2.R;
 import com.example.assignment2.ViewModel.AppViewModel;
@@ -31,7 +30,8 @@ public class BikeProfileActivity extends AppCompatActivity {
     public static final String EXTRA_BMODEL =
             "com.example.assignment2.main.EXTRA_BMODEL";
 
-    public static final int ADD_COMPONENT_REQUEST = 1;
+    public static final int ADD_COMPONENT_REQUEST  = 1;
+    public static final int EDIT_COMPONENT_REQUEST = 2;
 
 
     TextView bikeTitle;
@@ -96,6 +96,21 @@ public class BikeProfileActivity extends AppCompatActivity {
             }
         }).attachToRecyclerView(recyclerView);
 
+        componentAdapter.setOnComponentClickListener(new ComponentAdapter.OnComponentClickListener() {
+            @Override
+            public void onComponentClick(Component component) {
+                Intent intent = new Intent(BikeProfileActivity.this, AddEditComponentActivity.class);
+
+                intent.putExtra(AddEditComponentActivity.EXTRA_CID, component.getId());
+
+                intent.putExtra(AddEditComponentActivity.EXTRA_NAME, component.getComponentName());
+                intent.putExtra(AddEditComponentActivity.EXTRA_DATE, component.getDateComponent());
+                intent.putExtra(AddEditComponentActivity.EXTRA_LIFETIME, component.getComponentLifetime());
+
+                startActivityForResult(intent, EDIT_COMPONENT_REQUEST);
+            }
+        });
+
     }
 
     @Override
@@ -103,14 +118,33 @@ public class BikeProfileActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if(requestCode ==  ADD_COMPONENT_REQUEST && resultCode == RESULT_OK){
-            String cName = data.getStringExtra(AddComponentActivity.EXTRA_NAME);
-            String cDate = data.getStringExtra(AddComponentActivity.EXTRA_DATE);
-            String cLifetime = data.getStringExtra(AddComponentActivity.EXTRA_LIFETIME);
+            String cName = data.getStringExtra(AddEditComponentActivity.EXTRA_NAME);
+            String cDate = data.getStringExtra(AddEditComponentActivity.EXTRA_DATE);
+            String cLifetime = data.getStringExtra(AddEditComponentActivity.EXTRA_LIFETIME);
 
             Component component = new Component(cName, cDate, cLifetime);
             appViewModel.insertComponent(component);
 
             Toast.makeText(this, "Component Saved", Toast.LENGTH_LONG).show();
+
+        } else if (requestCode ==  EDIT_COMPONENT_REQUEST && resultCode == RESULT_OK){
+            int id = data.getIntExtra(AddEditComponentActivity.EXTRA_CID, -1);
+
+            if(id == -1){
+                Toast.makeText(this, "Component cannot be updated", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            String cName = data.getStringExtra(AddEditComponentActivity.EXTRA_NAME);
+            String cDate = data.getStringExtra(AddEditComponentActivity.EXTRA_DATE);
+            String cLifetime = data.getStringExtra(AddEditComponentActivity.EXTRA_LIFETIME);
+
+            Component component = new Component(cName, cDate, cLifetime);
+            component.setId(id);
+            appViewModel.updateComponent(component);
+
+            Toast.makeText(this, "Component Updated", Toast.LENGTH_LONG).show();
+
         } else {
             Toast.makeText(this, "Component Not Saved", Toast.LENGTH_LONG).show();
 
@@ -118,7 +152,7 @@ public class BikeProfileActivity extends AppCompatActivity {
     }
 
     private void openAddComponentAct() {
-        Intent intent = new Intent(this, AddComponentActivity.class);
+        Intent intent = new Intent(this, AddEditComponentActivity.class);
         //startActivity(intent);
         startActivityForResult(intent, ADD_COMPONENT_REQUEST);
     }

@@ -15,7 +15,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class AddComponentActivity extends AppCompatActivity {
+import static com.example.assignment2.main.BikeProfileActivity.EXTRA_ID;
+
+public class AddEditComponentActivity extends AppCompatActivity {
+    public static final String EXTRA_CID =
+            "com.example.assignment2.main.EXTRA_CID";
     public static final String EXTRA_NAME =
             "com.example.assignment2.main.EXTRA_NAME";
     public static final String EXTRA_DATE =
@@ -53,6 +57,17 @@ public class AddComponentActivity extends AppCompatActivity {
             }
         });
 
+        Intent intent = getIntent();
+
+        if(intent.hasExtra(EXTRA_CID)){
+//            componentName.setHint("Edit component name");
+//            componentLifetime.setHint("Edit component Lifetime");
+
+            componentName.setText(intent.getStringExtra(EXTRA_NAME));
+            componentLifetime.setText(intent.getStringExtra(EXTRA_LIFETIME));
+            componentDate.setText(intent.getStringExtra(EXTRA_DATE));
+        }
+
     }
 
     private void addComponent(){
@@ -69,6 +84,11 @@ public class AddComponentActivity extends AppCompatActivity {
         data.putExtra(EXTRA_NAME, cName);
         data.putExtra(EXTRA_DATE, cDate);
         data.putExtra(EXTRA_LIFETIME, cLifetime);
+
+        int id = getIntent().getIntExtra(EXTRA_CID, -1);
+        if(id != -1){
+            data.putExtra(EXTRA_CID, id);
+        }
 
         setResult(RESULT_OK, data);
         finish();
