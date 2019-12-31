@@ -44,6 +44,11 @@ public class ComponentAdapter extends RecyclerView.Adapter<ComponentAdapter.Comp
         notifyDataSetChanged();
     }
 
+    //method which gets the position of the item
+    public Component getComponentAt(int position){
+        return components.get(position);
+    }
+
 
     //
     class ComponentHolder extends RecyclerView.ViewHolder{

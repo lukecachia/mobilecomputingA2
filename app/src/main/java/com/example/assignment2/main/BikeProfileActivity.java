@@ -1,8 +1,10 @@
 package com.example.assignment2.main;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -79,6 +81,20 @@ public class BikeProfileActivity extends AppCompatActivity {
                 componentAdapter.setComponents(components);
             }
         });
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                appViewModel.deleteComponent(componentAdapter.getComponentAt(viewHolder.getAdapterPosition()));
+
+                Toast.makeText(BikeProfileActivity.this, "Component Deleted", Toast.LENGTH_LONG).show();
+            }
+        }).attachToRecyclerView(recyclerView);
 
     }
 
