@@ -56,8 +56,8 @@ public class ComponentAdapter extends RecyclerView.Adapter<ComponentAdapter.Comp
             super(itemView);
 
             componentTitle    = itemView.findViewById(R.id.componentTitle);
-            componentPurchase = itemView.findViewById(R.id.purchaseTitle);
-            componentLifetime = itemView.findViewById(R.id.lifetimeTitle);
+            componentPurchase = itemView.findViewById(R.id.componentPDate);
+            componentLifetime = itemView.findViewById(R.id.componentLifetime);
 
 
         }

@@ -24,68 +24,92 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/dopTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/componentTitle"
+            android:text="@string/dopTitle"
+            android:padding="4dp" />
+
+        <TextView
+            android:id="@+id/componentLifetime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/componentTitle"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:text="dummmy lifetime" />
+
+        <TextView
+            android:id="@+id/componentLTTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dopTitle"
+            android:text="@string/componentLTTitle"
+            android:padding="4dp" />
+
+        <TextView
+            android:id="@+id/componentPDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/componentLifetime"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:text="dummy DOP" />
+
+
         <!--        <TextView-->
-        <!--            android:id="@+id/componentSubtitle"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_below="@+id/itemTitle"-->
-        <!--            android:layout_marginTop="2dp"-->
-        <!--            android:padding="2dp"-->
-        <!--            android:text="Line2"-->
-        <!--            android:textColor="@android:color/black"-->
-        <!--            android:textSize="15sp" />-->
+<!--            android:id="@+id/compPurchase"-->
+<!--            android:layout_width="191dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/itemTitle"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginTop="33dp"-->
+<!--            android:layout_marginEnd="12dp"-->
+<!--            android:padding="2dp"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="15sp" />-->
 
-        <TextView
-            android:id="@+id/purchaseTitle"
-            android:layout_width="191dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/itemTitle"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="33dp"
-            android:layout_marginEnd="209dp"
-            android:padding="2dp"
-            android:text="DOP"
-            android:textColor="@android:color/black"
-            android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/compPurchase"
-            android:layout_width="191dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/itemTitle"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="33dp"
-            android:layout_marginEnd="12dp"
-            android:padding="2dp"
-            android:text="DOP"
-            android:textColor="@android:color/black"
-            android:textSize="15sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/dopTitle"-->
+<!--            android:layout_width="191dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/itemTitle"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginTop="33dp"-->
+<!--            android:layout_marginEnd="218dp"-->
+<!--            android:padding="2dp"-->
+<!--            android:text="Date of Purchase: "-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="15sp" />-->
 
-        <TextView
-            android:id="@+id/lifetimeTitle"
-            android:layout_width="191dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/itemTitle"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="65dp"
-            android:layout_marginEnd="209dp"
-            android:padding="2dp"
-            android:text="Component Lifetime"
-            android:textColor="@android:color/black"
-            android:textSize="15sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/purchaseTitle"-->
+<!--            android:layout_width="191dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="66dp"-->
+<!--            android:layout_marginEnd="222dp"-->
+<!--            android:padding="2dp"-->
+<!--            android:text="DOP"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="15sp" />-->
 
-        <TextView
-            android:id="@+id/compLifetime"
-            android:layout_width="191dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/itemTitle"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="66dp"
-            android:layout_marginEnd="12dp"
-            android:padding="2dp"
-            android:text="Component Lifetime"
-            android:textColor="@android:color/black"
-            android:textSize="15sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/compLifetime"-->
+<!--            android:layout_width="191dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/itemTitle"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginTop="66dp"-->
+<!--            android:layout_marginEnd="11dp"-->
+<!--            android:padding="2dp"-->
+<!--            android:text="Compo Lifetime"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="15sp" />-->
 
 
     </RelativeLayout>

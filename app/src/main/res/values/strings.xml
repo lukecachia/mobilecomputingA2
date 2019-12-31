@@ -11,7 +11,9 @@
     <string name="activityDistance">Distance for this Activity</string>
     <string name="addComponent_submit">Submit</string>
     <string name="add_component">Add a component</string>
-    <string name="add_lifetime">Add component Lifetime</string>
+    <string name="add_lifetime">Add component lifetime</string>
+    <string name="componentLTTitle">Component Lifetime:</string>
+    <string name="dopTitle">Date of Purchase:</string>
 
 
     <string-array name="listOfBikes">
